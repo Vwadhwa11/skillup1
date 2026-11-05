@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkillUp AI | Practical AI training for teams</title>
+<meta name="description" content="Hands-on AI training that helps teams automate processes, build AI agents and get more done.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4f1e8;--paper2:#ebe7da;--ink:#16241c;--muted:#56665c;--forest:#0f3b2c;--forest2:#164a38;--lime:#c8f23a;--line:#d6d1c0;--radius:14px;--max:1120px}
+@media(prefers-color-scheme:dark){:root{color-scheme:light}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 "Hanken Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.1;letter-spacing:-.015em;margin:0}
+h1{font-size:clamp(2.5rem,6.2vw,4.6rem)}h2{font-size:clamp(1.9rem,4vw,2.9rem)}h3{font-size:1.5rem}
+p{margin:0}a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.25rem}
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.dark{background:var(--forest);color:#eef3e6}.dark .muted{color:#a9c1b2}.muted{color:var(--muted)}
+.btn{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink);cursor:pointer;font:inherit;font-weight:600;background:transparent;color:var(--ink);transition:background .15s,transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.lime{background:var(--lime);border-color:var(--lime);color:#10230a}.btn.lime:hover{background:#d6f765}
+.dark .btn{border-color:#eef3e6;color:#eef3e6}.dark .btn.lime{color:#10230a;border-color:var(--lime)}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px}.dark :focus-visible{outline-color:#fff}
+header{position:sticky;top:0;z-index:10;background:rgba(244,241,232,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:600 1.35rem Fraunces,serif;text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.logo i{width:14px;height:14px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px var(--forest)}
+nav a{margin-left:1.4rem;text-decoration:none;font-weight:500;font-size:.98rem}nav a:hover{text-decoration:underline}
+nav .btn{padding:.5rem 1.05rem;margin-left:1.4rem;background:var(--forest);color:#fff;border-color:var(--forest)}
+@media(max-width:760px){nav a:not(.btn){display:none}}
+.hero{padding-top:clamp(2.5rem,6vw,5rem)}
+.hero-grid{display:grid;gap:3rem;grid-template-columns:1.15fr .85fr;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.hero p.lead{font-size:1.25rem;max-width:34rem;margin:1.5rem 0 2rem;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem}
+.proof{margin-top:2rem;font-size:.95rem;color:var(--muted)}
+.flow{background:var(--forest);border-radius:24px;padding:1rem}.flow svg{width:100%;height:auto;display:block}
+.dash{stroke-dasharray:6 8;animation:d 1.6s linear infinite}@keyframes d{to{stroke-dashoffset:-28}}
+@media(prefers-reduced-motion:reduce){.dash{animation:none}html{scroll-behavior:auto}}
+.split{display:grid;gap:3rem;grid-template-columns:.9fr 1.1fr}@media(max-width:900px){.split{grid-template-columns:1fr}}
+.steps{display:grid;gap:1.25rem;margin-top:2rem}.steps div{border-left:4px solid var(--lime);padding-left:1rem;background:none}.dark .steps div{border-color:var(--lime)}
+.steps b{display:block;font-family:Fraunces,serif;font-size:1.25rem;font-weight:500}
+.outcomes{list-style:none;padding:0;margin:0;display:grid;gap:.9rem}
+.outcomes li{padding:1.1rem 1.25rem;background:var(--paper2);border-radius:var(--radius)}
+.outcomes b{display:block;margin-bottom:.15rem}
+.cards{display:grid;gap:1.25rem;grid-template-columns:repeat(3,1fr);margin-top:2.5rem}
+@media(max-width:960px){.cards{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.75rem;display:flex;flex-direction:column;gap:1rem}
+.card.featured{background:var(--forest);color:#eef3e6;border-color:var(--forest)}
+.tag{align-self:flex-start;font-size:.85rem;font-weight:600;background:var(--lime);color:#10230a;padding:.2rem .7rem;border-radius:999px}
+.card .dur{font-weight:600}.price{font:500 2.2rem Fraunces,serif}.price small{font:400 .95rem "Hanken Grotesk",sans-serif;opacity:.75}
+.card ul{margin:0;padding:0;list-style:none;display:grid;gap:.55rem;flex:1}
+.card li{padding-left:1.5rem;position:relative}.card li:before{content:"";position:absolute;left:0;top:.6em;width:.8rem;height:.45rem;border-left:2px solid #2f7d57;border-bottom:2px solid #2f7d57;transform:rotate(-45deg) translateY(-50%)}
+.featured li:before{border-color:var(--lime)}
+.note{margin-top:1.5rem;font-size:.95rem}
+.tools{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.75rem}
+.tools span{border:1.5px solid #4c7a64;border-radius:999px;padding:.45rem 1.1rem;font-weight:500}
+details{border-bottom:1px solid var(--line);padding:1.1rem 0}
+summary{cursor:pointer;font:500 1.25rem Fraunces,serif;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}summary:after{content:"+";font-size:1.6rem;line-height:1;transition:transform .2s}details[open] summary:after{transform:rotate(45deg)}
+details p{margin-top:.7rem;max-width:44rem;color:var(--muted)}
+.contact{display:grid;gap:3rem;grid-template-columns:.85fr 1.15fr}@media(max-width:900px){.contact{grid-template-columns:1fr}}
+form{background:var(--paper);color:var(--ink);border-radius:20px;padding:1.75rem;display:grid;gap:1rem}
+label{font-weight:600;font-size:.95rem;display:grid;gap:.35rem}
+input,select,textarea{font:inherit;padding:.75rem .9rem;border:1.5px solid #b9b49f;border-radius:10px;background:#fff;color:var(--ink);width:100%}
+textarea{min-height:120px;resize:vertical}.row{display:grid;gap:1rem;grid-template-columns:1fr 1fr}@media(max-width:560px){.row{grid-template-columns:1fr}}
+.hp{position:absolute;left:-9999px}.privacy-note{font-size:.88rem;color:var(--muted)}
+.status{padding:1rem 1.1rem;border-radius:10px;font-weight:500;display:none}.status.ok{display:block;background:#dff3b0}.status.err{display:block;background:#f9d9d3;color:#6d1b0e}
+.btn[disabled]{opacity:.6;cursor:wait}
+#privacy{background:var(--paper2);padding:3rem 0}#privacy p{max-width:46rem;color:var(--muted);margin-top:.8rem}
+footer{padding:2rem 0;font-size:.92rem}footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="#top"><i></i>SkillUp AI</a>
+  <nav aria-label="Main"><a href="#approach">Approach</a><a href="#programmes">Programmes</a><a href="#faq">FAQ</a><a class="btn" href="#book">Book a call</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <h1>Your team, working with AI by Friday.</h1>
+    <p class="lead">Practical, hands-on training that helps your people automate repetitive processes, build AI agents and reclaim hours every week, using your real work, not slideware.</p>
+    <div class="cta"><a class="btn lime" href="#book" style="color:#10230a;background:var(--lime);border-color:var(--lime)">Book a free consultation</a><a class="btn" href="#programmes">See programmes</a></div>
+    <p class="proof">Workshops for operations, marketing, finance, support and leadership teams. Remote or on site.</p>
+  </div>
+  <div class="flow" aria-hidden="true">
+    <svg viewBox="0 0 400 340" fill="none">
+      <g stroke="#c8f23a" stroke-width="2" class="dash"><path d="M110 70 C170 70 150 140 200 160"/><path d="M110 270 C170 270 150 190 200 170"/><path d="M270 165 C300 165 300 90 320 90"/><path d="M270 165 H320"/><path d="M270 165 C300 165 300 250 320 250"/></g>
+      <g font-family="Hanken Grotesk,sans-serif" font-size="14" font-weight="600">
+        <rect x="20" y="45" width="90" height="50" rx="12" fill="#164a38" stroke="#4c7a64"/><text x="65" y="75" text-anchor="middle" fill="#eef3e6">Inbox</text>
+        <rect x="20" y="245" width="90" height="50" rx="12" fill="#164a38" stroke="#4c7a64"/><text x="65" y="275" text-anchor="middle" fill="#eef3e6">Reports</text>
+        <circle cx="235" cy="165" r="48" fill="#c8f23a"/><text x="235" y="160" text-anchor="middle" fill="#10230a">AI</text><text x="235" y="178" text-anchor="middle" fill="#10230a">agent</text>
+        <rect x="320" y="65" width="70" height="50" rx="12" fill="#eef3e6"/><text x="355" y="95" text-anchor="middle" fill="#0f3b2c">Draft</text>
+        <rect x="320" y="140" width="70" height="50" rx="12" fill="#eef3e6"/><text x="355" y="170" text-anchor="middle" fill="#0f3b2c">Review</text>
+        <rect x="320" y="225" width="70" height="50" rx="12" fill="#eef3e6"/><text x="355" y="255" text-anchor="middle" fill="#0f3b2c">Send</text>
+      </g>
+    </svg>
+  </div>
+</div></section>
+
+<section id="approach" class="dark"><div class="wrap split">
+  <div>
+    <h2>We teach by building, with your work on the screen.</h2>
+    <p class="muted" style="margin-top:1.25rem">Every session starts from a task your team actually does. People leave with something working, plus the habits to keep going.</p>
+    <div class="steps">
+      <div><b>Start with your processes</b><span class="muted">We pick real tasks that are slow, repetitive or error-prone.</span></div>
+      <div><b>Build together, live</b><span class="muted">Coaches work beside each person, not in front of them.</span></div>
+      <div><b>Leave with working tools</b><span class="muted">Automations, agents and playbooks your team owns.</span></div>
+    </div>
+  </div>
+  <div>
+    <h3 style="margin-bottom:1.25rem">After training, your team can:</h3>
+    <ul class="outcomes" style="color:var(--ink)">
+      <li><b>Automate routine processes</b>Turn repeated steps like reporting, triage and data entry into reliable workflows.</li>
+      <li><b>Build and supervise AI agents</b>Design agents with clear scope, guardrails and human review.</li>
+      <li><b>Write prompts that get consistent results</b>Use shared templates instead of trial and error.</li>
+      <li><b>Judge when AI is the right tool</b>Spot risks around accuracy, privacy and cost before they bite.</li>
+      <li><b>Ship small internal tools</b>Prototype and deploy without waiting on a development queue.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="programmes"><div class="wrap">
+  <h2>Three ways to start</h2>
+  <p class="muted" style="margin-top:1rem;max-width:36rem">Pick the depth that fits your team. Each programme is tailored to your tools, data and goals.</p>
+  <div class="cards" id="cards"></div>
+  <p class="note muted" id="pricing-note"></p>
+</div></section>
+
+<section class="dark"><div class="wrap">
+  <h2 style="max-width:30rem">The right tools for the job</h2>
+  <p class="muted" style="margin-top:1rem;max-width:40rem">We use modern AI tooling where it suits your team and your technical comfort, and we stay tool-neutral when something else fits better.</p>
+  <div class="tools"><span>Claude Code</span><span>Cursor</span><span>AntiGravity</span><span>Vercel</span></div>
+</div></section>
+
+<section id="faq"><div class="wrap" style="max-width:860px">
+  <h2 style="margin-bottom:1.5rem">Questions teams ask us</h2>
+  <details><summary>Do we need technical experience?</summary><p>No. AI at Work and AI for Business are designed for non-technical teams. AI Build Lab suits mixed groups: we pair confident builders with beginners and coach at both levels.</p></details>
+  <details><summary>Can the training be customised to our company?</summary><p>Yes. We run a short discovery call, then base exercises on your processes, terminology and policies. Prices are indicative, and we confirm a fixed quote after discovery.</p></details>
+  <details><summary>Which tools will we use?</summary><p>Where suitable we use Claude Code, Cursor, AntiGravity and Vercel, alongside the AI assistants and apps your team already has approved. We adapt to your security and licensing requirements.</p></details>
+  <details><summary>Can you deliver remotely?</summary><p>Yes. Sessions run live over video with breakout practice and shared build spaces. On-site delivery is available by arrangement and travel may be quoted separately.</p></details>
+  <details><summary>How do we get started?</summary><p>Book a free consultation or send the form below. We will reply within two working days, learn about your goals and recommend a programme and timeline.</p></details>
+</div></section>
+
+<section id="book" class="dark"><div class="wrap contact">
+  <div>
+    <h2>Book a free consultation</h2>
+    <p class="muted" style="margin:1.25rem 0 1.75rem">A 30-minute call to understand your team, spot the best first automation and recommend a programme. No obligation.</p>
+    <a class="btn lime" data-calendly target="_blank" rel="noopener" style="color:#10230a;background:var(--lime);border-color:var(--lime)">Pick a time on Calendly</a>
+    <p class="muted" style="margin-top:1.5rem">Prefer email? <a data-email></a></p>
+  </div>
+  <form id="lead" novalidate>
+    <h3>Or tell us what you need</h3>
+    <div class="row">
+      <label>Name<input name="name" autocomplete="name" required maxlength="100"></label>
+      <label>Work email<input name="email" type="email" autocomplete="email" required maxlength="150"></label>
+    </div>
+    <div class="row">
+      <label>Company<input name="company" autocomplete="organization" required maxlength="150"></label>
+      <label>Programme interest<select name="programme" id="programme"></select></label>
+    </div>
+    <label>What do you want AI to help with?<textarea name="goal" required maxlength="2000" placeholder="For example: cut the time our support team spends on first replies"></textarea></label>
+    <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="privacy-note">We use your details only to reply to this enquiry and arrange a consultation. We never sell them. See the <a href="#privacy">privacy notice</a>.</p>
+    <button class="btn lime" type="submit" style="color:#10230a;background:var(--lime);border-color:var(--lime)">Send enquiry</button>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+  </form>
+</div></section>
+
+<section id="privacy"><div class="wrap">
+  <h3>Privacy notice</h3>
+  <p>When you submit the form we collect your name, work email, company, programme interest and message. They are emailed to the SkillUp AI team and used to respond to you and plan training. We keep enquiries only as long as needed for that purpose, and you can ask us to access or delete your data at any time by emailing <a data-email></a>. Replace this text with your final legal privacy policy before launch.</p>
+</div></section>
+</main>
+
+<footer class="dark" style="background:var(--forest2)"><div class="wrap"><span>© <span id="yr"></span> SkillUp AI</span><span><a href="#privacy">Privacy</a> &nbsp; <a href="#book">Book a call</a></span></div></footer>
+
+<script src="config.js"></script>
+<script>
+const C=window.SITE_CONFIG,$=s=>document.querySelector(s),money=n=>C.currency+n.toLocaleString("en-US");
+document.querySelectorAll("[data-calendly]").forEach(a=>a.href=C.calendlyUrl);
+document.querySelectorAll("[data-email]").forEach(a=>{a.href="mailto:"+C.contactEmail;a.textContent=C.contactEmail});
+$("#yr").textContent=new Date().getFullYear();$("#pricing-note").textContent=C.pricingNote;
+$("#cards").innerHTML=C.programmes.map(p=>`<article class="card${p.featured?" featured":""}">${p.featured?'<span class="tag">Most popular</span>':""}
+<h3>${p.name}</h3><p class="dur">${p.duration}</p><p>${p.summary}</p>
+<div class="price"><small>from</small> ${money(p.from)} <small>per team</small></div>
+<ul>${p.includes.map(i=>`<li>${i}</li>`).join("")}</ul>
+<a class="btn ${p.featured?"lime":""}" href="#book" data-pick="${p.name}"${p.featured?' style="color:#10230a"':""}>Ask about ${p.name}</a></article>`).join("");
+$("#programme").innerHTML=['<option value="">Not sure yet</option>',...C.programmes.map(p=>`<option>${p.name}</option>`)].join("");
+document.addEventListener("click",e=>{const a=e.target.closest("[data-pick]");if(a)$("#programme").value=a.dataset.pick});
+const form=$("#lead"),box=$("#status");
+form.addEventListener("submit",async e=>{
+  e.preventDefault();box.className="status";
+  const data=Object.fromEntries(new FormData(form));
+  if(!form.checkValidity()){box.textContent="Please complete every required field with a valid work email.";box.className="status err";form.reportValidity();return}
+  const btn=form.querySelector("button");btn.disabled=true;btn.textContent="Sending…";
+  try{
+    const r=await fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok||!j.ok)throw new Error(j.error||"Request failed");
+    form.reset();box.textContent="Thanks, we have your enquiry. We will reply within two working days.";box.className="status ok";
+  }catch(err){
+    box.textContent=(err.message&&err.message!=="Request failed"?err.message:"Something went wrong and your message was not sent.")+" You can email "+C.contactEmail+" or book a call instead.";box.className="status err";
+  }finally{btn.disabled=false;btn.textContent="Send enquiry"}
+});
+</script>
+</body>
+</html>
